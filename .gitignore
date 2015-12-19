@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 .gitignore
 twitter_api/
 pocket_api/.private.yaml
 
+=======
+/pocket_api/.private.yaml
+twitter_api
+>>>>>>> 4e01526f1840cad831e3acb17c8bd7ff31abb43e
