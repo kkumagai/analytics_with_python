@@ -1,2 +1,4 @@
-/pocket_api/.private.yaml
-twitter_api
+.gitignore
+twitter_api/
+pocket_api/.private.yaml
+
