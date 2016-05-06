@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, redirect, url_for, render_template, request
 import wordlist
-import weblio_parser
+# import weblio_parser
 from werkzeug.routing import BaseConverter
 
 app = Flask(__name__, static_url_path = '')
@@ -64,7 +64,8 @@ def add(user, word):
 		return redirect("/{}/{}".format(user,request.form["word"]))
 	else:
 		try:
-			weblio = weblio_parser.parse(word)
+			# weblio = weblio_parser.parse(word)
+			weblio = {"word": "", "meaning":""}
 			return render_template("add.html", user = user, word = weblio["word"], meaning = weblio["meaning"])
 		except:
 			return render_template("add.html", user = user, word = "", meaning = "")

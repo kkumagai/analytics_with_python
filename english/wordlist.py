@@ -3,7 +3,7 @@ import json
 from time import sleep
 from datetime import datetime
 from pymongo import MongoClient
-import requests
+# import requests
 from bs4 import BeautifulSoup
 
 # words 
