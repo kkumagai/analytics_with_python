@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block body %}
+<br />
+<br />
+		<div class="row"> 
+			<div class="col-sm-12 col-md-12">
+
+				<h1>{{ word["word"] }}</h1>
+				<button id="show_answer" type="button" class="btn btn-primary">答えをみる</button>
+
+			</div>
+
+			<div id="answer" style="display:none" class="col-sm-12 col-md-12">
+				<br />
+				<h2>{{ word["meaning"] }}</h2>				
+				<form action="/kkuma/{{word["word"]}}" method="post">
+					<input type = "hidden" name = "word" value = "{{word["word"]}}">
+					<button type="submit" name = "result" value = "known" class="btn btn-primary">わかった</button>
+					<button type="submit" name = "result" value = "unknown" class="btn btn-default">わからなかった</button>
+				</form>
+			</div>
+			<script>
+				$("#answer").hide();
+			</script>
+		</div>
+	
+	<script>
+		$("#show_answer").click(function(){
+			$("#answer").show();
+		});
+	</script>
+
+{% endblock %}

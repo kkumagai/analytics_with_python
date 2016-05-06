@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+    
+        <div class="row" style = "margin-top: 40px"> 
+    	<table>
+    {% for word in words %}
+    		<tr>
+    			<td>{{word["word"]}}</td>
+    			<td>{{word["meaning"]}}</td>
+    			<td>{{word["memo"]}}</td>
+    		</tr>
+    {% endfor %}
+    	</table>
+        <li><a href="/{{user}}/{{word["word"]}}">{{word["word"]}}({{word["meaning"]}})</a></li>
+
+        </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+        	<div class="row" style = "margin-top: 30px"> 
+        		<div class="col-sm-12 col-sm-offset-1 col-md-10 col-md-offset-1">
+        			<br />
+	        		<form action="/{{user}}/add/{{word}}" method="post">
+	        		    <p><input type="text" name="word" value = {{ word }}>
+	        		    <p><input type="text" name="meaning" value = {{ meaning }}>
+	        		    <p><input class="btn btn-primary" type="submit" value="Add">
+	        		</form>
+        		</div>
+        	</div>
+{% endblock %}

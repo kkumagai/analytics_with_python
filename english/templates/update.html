@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+            <div class="row" style = "margin-top: 30px"> 
+                <div class="col-sm-12 col-md-12">
+                    <br />
+                    <form action="/{{user}}/update/{{word}}" method="post">
+                        <p><input type="text" name="word" value = "{{ word["word"] }}" readonly>
+                        <p><input type="text" name="meaning" value = "{{ word["meaning"] }}">
+                        <p><input class="btn btn-primary" type="submit" value="Add">
+                    </form>
+                </div>
+            </div>
+{% endblock %}

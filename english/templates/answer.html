@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block body %}
+<br />
+<br />
+<div class="row"> 
+	<div class="col-sm-12 col-md-12">
+		{% if word["recent"] == [1,1,1,1,1] %}
+		<div class="alert alert-success">
+		   <strong>5回連続正解おめでとう！</strong>「{{ word["word"] }}」の学習が完了しました。
+		</div>	
+		{% endif %}
+		<h1>{{ word["word"] }}</h1>
+		<h2>{{ word["meaning"] }}</h2>
+		<button type="submit" class="btn btn-info" onClick="window.open('{{word.url_image}}', 'blank_')">画像</button>		
+		<button type="submit" class="btn btn-info" onClick="window.open('{{word.url_sentence}}', 'blank_')">例文</button>	
+		<button type="submit" class="btn btn-info" onClick="window.open('{{word.url_ejdict}}', 'blank_')">和英</button>		
+		<button type="submit" class="btn btn-info" onClick="window.open('{{word.url_eedict}}', 'blank_')">英英</button>		
+		<button type="submit" class="btn btn-info" onClick="window.open('{{word.url_thesaurus}}', 'blank_')">類語</button>		
+		<button type="submit" class="btn btn-default" onClick="window.location = '/{{user}}/update/{{word["word"]}}'">編集</button>		
+		<br />
+		<br />
+		<form action="/{{user}}" method="post">
+		<textarea name="memo" class="form-control" rows="4">{{ word["memo"] }}</textarea>
+		<br />
+		<input type="hidden" name="word" value="{{word["word"]}}">
+		<button type="submit" class="btn btn-primary">次へ</button>
+		</form>
+		<br />
+
+		<h5>これまでの結果</h5>
+		<table class="table table-bordered">
+			<tr>
+				<th>今回</th>
+				<th>前回</th>
+				<th>3回前</th>
+				<th>4回前</th>
+				<th>5回前</th>
+			</tr>
+			<tr>
+				{% for i in word["recent"][::-1]%}
+					{% if i == 1%}
+						<td>{{"◯"}}</td>
+					{% else %}
+						<td>{{"-"}}</td>
+					{% endif %}
+				{% endfor %}
+			</tr>
+		</table>
+		<br />
+
+	</div>
+</div>
+	
+{% endblock %}
